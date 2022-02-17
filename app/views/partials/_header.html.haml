@@ -1,0 +1,19 @@
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  .container
+    %a.navbar-brand(href=root_url)="ChetnaBeauty"
+    %button.navbar-toggler='Home'
+    %div.collapse.navbar-collapse.d-flex.flex-row-reverse
+      %ul.navbar-nav
+        %li.nav-item.active
+          = link_to('Home', root_url, :class => 'nav-link')
+        %li.nav-item
+          = link_to('About Us', about_us_path, :class => 'nav-link')
+        %li.nav-item
+          = link_to('Services', '/#service_list', :class => 'nav-link')
+        %li.nav-item
+          = link_to('contact Us', contact_us_path, :class => 'nav-link')
+        %li.nav-item
+        - if user_signed_in?
+          = link_to('Logout', destroy_user_session_url, :method => :delete, :class => 'btn btn-booking')
+        - else
+          = link_to('Login', new_user_session_url, :class => 'btn btn-booking')

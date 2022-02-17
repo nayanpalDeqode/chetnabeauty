@@ -1,0 +1,52 @@
+// *********** header
+= render :partial => 'partials/header'
+
+// *********** Booking 
+%div.home-background
+  %div.row.m-0.pt-5
+    %div.col-md-6.p-5 
+      %h3.text-center='Booking'
+      %div.display-booking 
+        - if flash[:destroy]
+          %div.alert.alert-danger=flash[:destroy]
+        - elsif @booking.nil?
+          %div.alert.alert-primary='you have not done booking'
+        - else
+          %div.row
+            %div.col-md-6
+              %p='Name'
+            %div.col-md-6
+              %p=@booking.name
+          %div.row
+            %div.col-md-6
+              %p='Address'
+            %div.col-md-6
+              %p=@booking.address
+          %div.row
+            %div.col-md-6
+              %p='Phone'
+            %div.col-md-6
+              %p=@booking.mobile_number
+          %div.row
+            %div.col-md-6
+              %p='Service'
+            %div.col-md-6
+              %p=@booking.service
+          %div.row
+            %div.col-md-6
+              %p='Rate'
+            %div.col-md-6
+              %p=@booking.service_rate
+          %div.row
+            %div.col-md-6
+              %p='Date'
+            %div.col-md-6
+              %p=@booking.date
+          %div.row
+            %div.col-md-6
+              = link_to('Edit booking', '', :class => 'btn btn-success')
+            %div.col-md-6
+              = link_to('cancel booking', booking_path(@booking.id), :method => "DELETE", :class => 'btn btn-danger')    
+    %div.col-md-6
+      - if @booking.nil?
+        = render :partial => 'booking/form'

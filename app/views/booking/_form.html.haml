@@ -1,0 +1,30 @@
+= form_for :booking do |f|
+  .form-group.booking-form
+    - if flash[:success]
+      %div.alert.alert-success=flash[:success]
+    - elsif flash[:error]
+      - flash[:error].each do |error|
+        %div.alert.alert-danger=error   
+    .row.mb-2
+      .col-12.mt-2.mb-2 
+        =f.label 'name', :id => 'input-control' 
+        %input.form-control(type='text' placeholder='Enter Name' name='name' required)
+      .col-12.mt-2.mb-2 
+        =f.label 'Address', :id => 'input-control'
+        %textarea.form-control(type='text' placeholder='Enter address' name='address' rows='2' required)
+      .col-12.mt-2.mb-2 
+        =f.label 'Mobile Number', id: 'input-control'
+        %input.form-control(type='number' placeholder='Enter mobile number' name='mobile_number' required)
+      .col-12.mt-2.mb-2
+        =f.label 'Select Service', :id => 'input-control'
+        = select_tag 'service', options_for_select(@service_names), :class => 'form-control'
+      .col-12.mt-2.mb-2
+        =f.label 'Select Service', :id => 'input-control'
+        %select.form-control#service(name='service_rate')
+          %option(value='300' selected)='300'
+          %option(value='500')='500'
+      .col-12.mt-2.mb-2
+        =f.label 'select date', :id => 'input-control'
+        %input.form-control(type='date' name='date' required) 
+      .col-12.mt-2.mb-2.text-center 
+        = f.button 'Book', :class=>'btn btn-booking', :name => 'Book'

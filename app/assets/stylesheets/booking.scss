@@ -1,0 +1,21 @@
+// Place all the styles related to the Booking controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.booking-form{
+  background-color: rgba(0,0,0,0.2);
+  padding: 30px;
+  width: auto;
+  border: 1px solid black;
+  margin: 30px;
+  border-radius: 5px;
+}
+.display-booking{
+  background-color: rgba(0,0,0,0.7);
+  margin: 0 80px;
+  padding: 40px;
+  color: white;
+  font-size: 22px;
+  border-radius: 5px;
+  border-top: 7px solid #376FFD;
+  border-bottom: 7px solid #376FFD;
+}

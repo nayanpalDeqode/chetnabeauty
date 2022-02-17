@@ -1,0 +1,26 @@
+// *********** header Section
+= render :partial => 'partials/header'
+
+%div.home-background
+  %div.row.m-0.pt-5
+    %div.col-md-12.p-5 
+      %h3.text-center='List and prices'
+      %div.display-booking 
+        - if @service_lists.empty?
+          %div.alert.alert-primary='List Not present'
+        - else
+          %div.row
+            %div.col-md-6
+              %h2='Name'
+            %div.col-md-6
+              %h2='Rate'
+          %hr
+          - @service_lists.each do |service_list|
+            %div.row
+              %div.col-md-6
+                %h5=service_list.name
+              %div.col-md-6
+                %h5="#{service_list.rate} Rs"
+
+// *********** footer Section
+= render :partial => 'partials/footer'

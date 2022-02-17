@@ -1,0 +1,19 @@
+= form_for :contact_us, :method => 'post' do |f|
+  .form-group.booking-form
+    - if flash[:success]
+      %div.alert.alert-success=flash[:success]
+    - elsif flash[:error]
+      - flash[:error].each do |error|
+        %div.alert.alert-danger=error   
+    .row.mb-2
+      .col-12.mt-2.mb-2 
+        =f.label 'name', :id => 'input-control' 
+        %input.form-control(type='text' placeholder='Enter Name' name='name' required)
+      .col-12.mt-2.mb-2 
+        =f.label 'Mobile Number', :id => 'input-control'
+        %input.form-control(type='number' placeholder='Enter mobile number' name='mobile_number' required)
+      .col-12.mt-2.mb-2 
+        =f.label 'Message', :id => 'input-control'
+        %textarea.form-control(type='text' placeholder='Enter Message' name='address' rows='2' required)
+      .col-12.mt-2.mb-2.text-center 
+        = f.button 'submit', :class=>'btn btn-booking', :name => 'Book'

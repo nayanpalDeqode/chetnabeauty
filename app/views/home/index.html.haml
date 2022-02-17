@@ -1,0 +1,48 @@
+// *********** header Section
+= render :partial => 'partials/header'
+
+// *********** home Section
+%div.home-background 
+  %div.row
+    %div.col-md-12.card-contain
+      %h1.mb-4="Some Heading"    
+      = link_to('Do Booking', booking_index_url, :class => 'btn btn-booking')
+
+// *********** Our services Section
+%div.container
+  // ---- services
+  %h1.mt-3.mb-3.text-center='our Services'
+  %div.row.mt-5
+    - @services.each do |service|
+      = link_to service_list_path(service.id), :id => 'service_list', :class => 'col-md-3 col-sm-6' do
+        %div.text-center 
+          %img.rounded-circle(src='https://picsum.photos/200' alt="")/
+          %h4.mt-3=service.name
+
+  // ---- Booking cards
+  %div.row.mt-5
+    %h1.mt-3.mb-3.text-center='Book your slots'
+    %div.col-md-4
+      %div.card
+        %img(src='https://picsum.photos/200' alt="")/
+        %div.card-body
+          %h5.card-title='Card title'
+          %p.card-text='Some quick example text to build on the card title and make up the bulk of the cards content.'
+          = link_to('Booking', booking_index_url, :class => 'nav-link text-center btn btn-outline-primary btn-sm btn-block') 
+    %div.col-md-4
+      %div.card
+        %img(src='https://picsum.photos/200' alt="")/
+        %div.card-body
+          %h5.card-title='Card title'
+          %p.card-text='Some quick example text to build on the card title and make up the bulk of the cards content.'
+          = link_to('Booking', booking_index_url, :class => 'nav-link text-center btn btn-outline-primary btn-sm btn-block')
+    %div.col-md-4
+      %div.card
+        %img(src='https://picsum.photos/200' alt="")/
+        %div.card-body
+          %h5.card-title='Card title'
+          %p.card-text='Some quick example text to build on the card title and make up the bulk of the cards content.'
+          = link_to('Booking', booking_index_url, :class => 'nav-link text-center btn btn-outline-primary btn-sm btn-block') 
+
+// *********** footer Section
+= render :partial => 'partials/footer'

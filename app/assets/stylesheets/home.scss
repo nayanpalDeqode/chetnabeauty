@@ -1,0 +1,48 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.home-background{
+  background-image: image-url('1.jpg');
+  height: 710px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.card-contain{
+  color: black;
+  padding: 30px;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid #f7a5b6;
+  background: rgba(0,0,0,0.3);
+  width: auto;
+  margin: 220px auto auto auto;
+}
+.btn-booking{
+  background-color: #fbe3e8;
+  color: black;
+  border: 1px solid #f7a5b6;
+  padding: 10px;
+  border-radius: 6px;
+}
+.btn-booking:hover{
+  background-color: #f7a5b6;
+}
+.login-background{
+  background-color: rgba(0,0,0,0.2);
+  padding: 30px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+#service_list{
+  transition: transform .6s;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+}
+#service_list:hover{
+  cursor: pointer;
+  transform: scale(0.95);
+  background-color: rgba(251, 227, 232, 0.3);
+  border-radius: 10px;
+  border: 1px solid #f7a5b6;
+}
