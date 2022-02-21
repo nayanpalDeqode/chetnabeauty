@@ -1,29 +1,49 @@
-<h2>Sign up</h2>
+<%= render :partial => 'partials/header' %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class='home-background p-5 login'>
+  <div class='row mt-5 pt-5'>
+      <div class='col-6 offset-md-3 text-center'>
+        <h2>Sign up</h2>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-4 offset-md-4 login-background'>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <div class="form-group mt-2 mb-2">
+            <%= f.label :email, :for => 'email', :id=>'input-control' %><br />
+            <%= f.email_field :email, autofocus: true, required: true, autocomplete: 'email', :class=>"form-control", :id=>"email" %>
+          </div>
+          <div class="form-group mt-2 mb-2">
+            <%= f.label :password, :for => 'password', :id=>'input-control' %><br />
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %>
+            <br />
+            <%= f.password_field :password, required: true, autocomplete: "new-password", :class=>"form-control", :id=>"password" %>
+          </div>
+          <div class="form-group mt-2 mb-2">
+            <%= f.label :password_confirmation, :for => 'password', :id=>'input-control' %><br />
+            <%= f.password_field :password_confirmation, required: true, autocomplete: "new-password", :class=>"form-control", :id=>"password" %>
+          </div>
+          <div class="actions text-center">
+            <%= f.submit "Sign up", :class => 'btn btn-booking mt-2 mb-2' %>
+          </div>
+        <% end %>
+        <%= render "devise/shared/links" %>
+      </div>
   </div>
+</div>
+<%= render :partial => 'partials/footer' %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+
+
+
+
+
+
+

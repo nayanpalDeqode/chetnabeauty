@@ -11,7 +11,7 @@
 // *********** Our services Section
 %div.container
   // ---- services
-  %h1.mt-3.mb-3.text-center='our Services'
+  %h1.mt-3.mb-3.text-center='Our Services'
   %div.row.mt-5
     - @services.each do |service|
       = link_to service_list_path(service.id), :id => 'service_list', :class => 'col-md-3 col-sm-6' do
